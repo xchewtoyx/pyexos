@@ -285,8 +285,9 @@ class EXOS(object):
             elif line.startswith('+'):
                 command = line[1::]
             elif line.startswith('-') and 'running_config.conf' not in line:
-                if ('create vlan' in line or 'create eaps' in line or
-                        'create meter' in line):
+                if ('create vlan' in line or
+                    'create eaps' in line or
+                    'create meter' in line):
                     command = line[1::].replace('create', 'delete')
                 elif 'fdbentry' in line or 'fdb' in line:
                     command = line[1::].replace('create', 'delete').split('port')[0].strip()
